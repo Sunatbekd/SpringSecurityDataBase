@@ -45,12 +45,12 @@
 
 
 
-        <td sec:authorize="hasAnyAuthority('INSTRUCTOR')">
+        <td sec:authorize="hasAnyAuthority('INSTRUCTOR','USER')">
             <a class="btn btn-outline-primary"  role="button"
                th:href="@{/tasks/getAllTasks/{lessonId}(lessonId=${lesson.id})}">Task</a>
         </td>
 
-        <td sec:authorize="hasAnyAuthority('INSTRUCTOR')">
+        <td sec:authorize="hasAnyAuthority('INSTRUCTOR','USER')">
             <a class="btn btn-outline-primary"  role="button"
                th:href="@{/videos/getAllVideos/{lessonId}(lessonId=${lesson.id})}">Video</a>
         </td>

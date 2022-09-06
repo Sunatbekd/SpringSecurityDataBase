@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -43,21 +42,6 @@ public class InstructorController {
         return "redirect:/courses/getCourses/"+id;
     }
 
-    //    @RequestMapping("/edit/{id}")
-//    public ModelAndView editProduct(@PathVariable("id") Long id){
-//        ModelAndView modelAndView = new ModelAndView("edit_product");
-//        Product product = productService.getProductById(id);
-//        modelAndView.addObject(product);
-//        return modelAndView;
-//    }
-//    @RequestMapping("/updateInstructor/{id}")
-//    public ModelAndView updateInstructor(@PathVariable("id") Long id ) {
-//        ModelAndView modelAndView = new ModelAndView("/instructor/updateInstructor");
-//        Instructor instructor = instructorService.getInstructorById(id);
-//        modelAndView.addObject(instructor);
-//        return modelAndView;
-//    }
-
     @GetMapping("/updateInstructor/{id}")
     public String updateInstructor(@PathVariable Long id, Model model) {
         Instructor instructor = instructorService.getInstructorById(id);
@@ -72,7 +56,6 @@ public class InstructorController {
                                 @ModelAttribute("instructor") Instructor instructor) {
         instructorService.updateInstructor(instructorId, instructor);
         return "redirect:/courses/getCourses/"+id;
-
     }
 
     @RequestMapping("{insId}/{companyId}")

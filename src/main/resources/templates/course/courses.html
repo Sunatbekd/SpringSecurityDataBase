@@ -32,7 +32,7 @@
         <th scope="col">Delete</th>
         <th scope="col">Students</th>
         <th scope="col">Lessons</th>
-        <th sec:authorize="hasAuthority('ADMIN')">Actions</th>
+        <th sec:authorize="hasAnyAuthority('ADMIN','USER')">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -63,12 +63,12 @@
         <td sec:authorize="hasAuthority('ADMIN')"><form th:method="DELETE" th:action="@{/courses/{courseId}/{companyId}(courseId=${course.getId()},companyId=${companyId})}">
             <input type="submit" value="delete" style="height: 40px; width: 80px; background-color:#abd21e;"/></form></td>
 
-        <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/students/allStudents/{courseId}(courseId=${course.getId()})}">
+        <td sec:authorize="hasAnyAuthority('ADMIN','USER')"><a th:href="@{/students/allStudents/{courseId}(courseId=${course.getId()})}">
             <button style="height: 40px; width: 90px; background-color:paleturquoise;">Students</button>
         </a>
         </td>
 
-        <td sec:authorize="hasAnyAuthority('ADMIN','INSTRUCTOR')"><a th:href="@{/lessons/getAllLessons/{id}(id=${course.getId()})}">
+        <td sec:authorize="hasAnyAuthority('ADMIN','INSTRUCTOR','USER')"><a th:href="@{/lessons/getAllLessons/{id}(id=${course.getId()})}">
             <button style="height: 40px; width: 90px; background-color:paleturquoise;">Lessons</button>
         </a>
         </td>

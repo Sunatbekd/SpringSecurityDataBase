@@ -69,7 +69,7 @@
             <form th:method="DELETE" th:action="@{/companies/delete/{id}(id=${company.getId()})}">
             <input type="submit" value="delete" style="height: 40px; width: 80px; background-color:darkorange;"/></form></td>
 
-        <td sec:authorize="hasAnyAuthority('ADMIN','INSTRUCTOR')"><a th:href="@{/courses/getCourses/{id}(id=${company.id})}">
+        <td sec:authorize="hasAnyAuthority('ADMIN','INSTRUCTOR','USER')"><a th:href="@{/courses/getCourses/{id}(id=${company.id})}">
             <button style="height: 40px; width: 90px; background-color:paleturquoise;">Courses</button>
         </a>
         </td>
@@ -79,7 +79,7 @@
 
 </table>
 <br><br><br><br>
-<input style=" display: block; margin:auto; font-size:30px;" type="button" value="Add company"
+<input sec:authorize="hasAnyAuthority('ADMIN')" style=" display: block; margin:auto; font-size:30px;" type="button" value="Add company"
        onclick="window.location.href = 'companies/addCompany'">
 
 

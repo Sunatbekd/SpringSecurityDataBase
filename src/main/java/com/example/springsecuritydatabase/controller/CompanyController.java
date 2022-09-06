@@ -47,16 +47,6 @@ public class CompanyController {
         return "redirect:/companies";
     }
 
-//    @RequestMapping("/updateCompany/{id}")
-//    public ModelAndView updateCompany(@PathVariable("id") Long id){
-//        ModelAndView modelAndView = new ModelAndView("/company/updateCompany");
-//        Company company = companyService.getCompanyById(id);
-//        modelAndView.addObject(company);
-//        return modelAndView;
-//    }
-
-
-
     @RequestMapping("/delete/{id}")
     public String deleteCompany(@PathVariable("id") Long id) {
         companyService.deleteCompany(id);

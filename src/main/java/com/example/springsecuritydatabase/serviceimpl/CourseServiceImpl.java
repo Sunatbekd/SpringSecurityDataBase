@@ -26,7 +26,9 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void addCourse(Long companyId, Course course) {
-        Company company = companyRepository.findCompanyById(companyId);
+        Company company = companyRepository.findById(companyId).orElseThrow(
+                ()->new NullPointerException("not found")
+        );
         company.addCourses(course);
         course.setCompany(company);
         courseRepository.save(course);
