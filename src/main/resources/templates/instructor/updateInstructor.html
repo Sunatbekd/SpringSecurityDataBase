@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Instructor</title>
+</head>
+<body>
+<form th:action="@{/instructors/saveUpdateInstructor/{id}/{instructorId}(id=${companyId},instructorId=${instructor.id})}"
+      th:object="${instructor}"
+      th:method="post">
+    <div>
+        <input th:field="*{firstName}" >
+    </div>
+    <div>
+        <input th:field="*{lastName}">
+    </div>
+    <div>
+        <input th:field="*{email}">
+    </div>
+
+    <div>
+        <input th:field="*{phoneNumber}">
+    </div>
+
+    <div>
+        <input th:field="*{specialization}">
+    </div>
+    <div>
+        <input type="submit" value="update">
+    </div>
+</form>
+</body>
+</html>
